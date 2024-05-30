@@ -1,15 +1,11 @@
-
 <template>
-    <div>
-<p>Product details for {{ id }}</p>
-    </div>
+  <div>
+    <p>Product details for {{ id }}</p>
+  </div>
 </template>
 
 <script setup>
-
-   const { id }= useRoute().params
+const { id } = useRoute().params;
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
