@@ -1,8 +1,9 @@
 <template>
     <div>
-      <header>
-        <nav>
-          <ul>
+      <header class="shadow-sm bg-white">
+        <nav class="container mx-auto p-4 flex justify-between">
+          <NuxtLink to="/" class="font-bold">Nuxt Dojo</NuxtLink>
+          <ul class="flex gap-4">
             <li>
               <!-- NuxtLink gives you the ability to navigate to new screens without making extra requests to the server if it's not needed
               which makes your web app much more performant and scalable-->
@@ -18,7 +19,7 @@
           </ul>
         </nav>
       </header>
-      <div>
+      <div class="container mx-auto p-4">
         <slot />
       </div>
       </div>

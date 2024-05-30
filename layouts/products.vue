@@ -1,16 +1,16 @@
 <template>
-      <header>
-        <nav>
+      <header class="shadow-sm bg-white">
+        <nav class="container mx-auto p-4">
           <NuxtLink to="/products">Nuxt Dojo Merch</NuxtLink>
         </nav>
       </header>
 
-      <div>
+      <div class="container mx-auto p-4">
         <slot />
       </div>
 
-      <footer>
-        <ul>
+      <footer class="container mx-auto p-4 flex justify-between border-t-2 bottom">
+        <ul class="flex gap-4">
             <li>
               <!-- NuxtLink gives you the ability to navigate to new screens without making extra requests to the server if it's not needed
               which makes your web app much more performant and scalable-->
