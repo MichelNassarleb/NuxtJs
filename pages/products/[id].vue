@@ -1,6 +1,6 @@
 <template>
   <div>
-<ProductDetails :product="product"/>
+<ProductDetails v-if="product" :product="product"/>
   </div>
 </template>
 
@@ -9,7 +9,7 @@ const { id } = useRoute().params;
 
 const uri = `https://fakestoreapi.com/products/${id}`
 // fetch the product
-const { data : product } = await useFetch<{title:string,id:number,price:string}>(uri,{
+const { data : product } = await useFetch<{title:string,id:number,price:string,description:string,image:string}>(uri,{
   key:`${id}`,
 })
 definePageMeta({
