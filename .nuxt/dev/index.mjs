@@ -1036,10 +1036,11 @@ const errorDev = /*#__PURE__*/Object.freeze({
 });
 
 const _code_ = defineEventHandler(async (event) => {
-  event.context.params;
+  var _a;
+  const { code } = event.context.params;
   const { currencyKey } = useRuntimeConfig();
-  const { data } = await $fetch(`https://api.currencyapi.com/v3/latest?currencies=ADAapikey=${currencyKey}`);
-  return data;
+  const { data } = await $fetch(`https://api.currencyapi.com/v3/latest?currencies=${code}&apikey=${currencyKey}`);
+  return ((_a = data == null ? void 0 : data[code]) == null ? void 0 : _a.value) || 0;
 });
 
 const _code_$1 = /*#__PURE__*/Object.freeze({

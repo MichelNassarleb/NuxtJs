@@ -9,9 +9,12 @@
           <p class="text-xl my-7">Price - ${{ product.price }}</p>
           <h3 class="font-bold border-b-2 mb-4 pb-2">Product description:</h3>
           <p class="mb-7">{{ product.description }}</p>
+          <p class="mb-7">{{ productPrice }}</p>
+
           <button class="btn flex">
             <i class="material-icons mr-2">add_shopping_cart</i>
             <span>add to cart</span>
+
           </button>
         </div>
       </div>
@@ -29,7 +32,12 @@
 }
     const { product } = defineProps<{
         product:Product;
-    }>()
+    }>();
+    const productPrice = useState('10')
+    await callOnce(async()=>{
+      const data = await $fetch('/api/currency/GBP')
+      productPrice.value  = data
+    })
   </script>
   
   <style scoped>
