@@ -816,9 +816,11 @@ const errorHandler = (async function errorhandler(error, event) {
   return send(event, html);
 });
 
+const _lazy_LSGmSX = () => Promise.resolve().then(function () { return ninja$1; });
 const _lazy_9uTKho = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
+  { route: '/api/ninja', handler: _lazy_LSGmSX, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_error', handler: _lazy_9uTKho, lazy: true, middleware: false, method: undefined },
   { route: '/**', handler: _lazy_9uTKho, lazy: true, middleware: false, method: undefined }
 ];
@@ -1030,6 +1032,16 @@ const errorDev = /*#__PURE__*/Object.freeze({
   template: template$1
 });
 
+const ninja = defineEventHandler(async (event) => {
+  const { data } = await $fetch("https://api.currencyapi.com/v3/latest?apikey=cur_live_1KmNyuqePLJVTEFydFWljFPo2SuO2GGJVjrx5Xkm");
+  return data;
+});
+
+const ninja$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: ninja
+});
+
 const Vue3 = version.startsWith("3");
 
 function resolveUnref(r) {
@@ -1086,7 +1098,7 @@ function createServerHead(options = {}) {
 
 const unheadPlugins = [];
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[],"style":[],"script":[],"noscript":[]};
+const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"},{"name":"description","content":"This is a website that contains products and everything about eshop"}],"link":[{"rel":"stylesheet","href":"https://fonts.googleapis.com/icon?family=Material+Icons"}],"style":[],"script":[],"noscript":[],"title":"Nuxt Dojo"};
 
 const appRootId = "__nuxt";
 

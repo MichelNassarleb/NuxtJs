@@ -9,10 +9,18 @@
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id praesentium
       non eligendi laborum explicabo minima dicta placeat rerum quis delectus.
     </p>
+    <div>{{ data }}</div>
   </div>
 </template>
 
-<script setup></script>
+<script lang="ts" setup>
+const {data} = await useFetch<{message:string}>('/api/ninja?name=mario',{
+  method:'post',
+  body:{
+    age:25
+  }
+})
+</script>
 
 <style scoped>
 h2 {
