@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Title>{{ product?.title }}</Title>
 <ProductDetails v-if="product" :product="product"/>
   </div>
 </template>

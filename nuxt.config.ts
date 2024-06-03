@@ -6,5 +6,18 @@ export default defineNuxtConfig({
   ],
   typescript:{
     typeCheck:true
+  },
+  app:{
+    head:{
+      title:'Nuxt Dojo',
+      meta:[{
+        name: 'description',
+        content:'This is a website that contains products and everything about eshop'
+      }],
+      link:[{
+        rel:'stylesheet',
+        href:'https://fonts.googleapis.com/icon?family=Material+Icons'
+      }]
+    }
   }
 });

@@ -15,6 +15,9 @@ definePageMeta({
 })
 //fetch the products 
 const { data : products } = await useFetch<{title:string,id:number,image:string}[]>('https://fakestoreapi.com/products')
+useHead({
+  title:'Nuxt Dojo | Merch'
+})
 </script>
 
 <style scoped>
