@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts" setup>
-const {data} = await useFetch<{message:string}>('/api/ninja?name=mario',{
+const {data} = await useFetch<{message:string}>('/api/currency/GBP',{
   method:'post',
   body:{
     age:25

@@ -101,7 +101,8 @@ const _inlineRuntimeConfig = {
       }
     }
   },
-  "public": {}
+  "public": {},
+  "currencyKey": "cur_live_1KmNyuqePLJVTEFydFWljFPo2SuO2GGJVjrx5Xkm"
 };
 const envOptions = {
   prefix: "NITRO_",
@@ -816,10 +817,12 @@ const errorHandler = (async function errorhandler(error, event) {
   return send(event, html);
 });
 
+const _lazy_EQu1wL = () => Promise.resolve().then(function () { return _code_$1; });
 const _lazy_LSGmSX = () => Promise.resolve().then(function () { return ninja$1; });
 const _lazy_9uTKho = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
+  { route: '/api/currency/:code', handler: _lazy_EQu1wL, lazy: true, middleware: false, method: undefined },
   { route: '/api/ninja', handler: _lazy_LSGmSX, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_error', handler: _lazy_9uTKho, lazy: true, middleware: false, method: undefined },
   { route: '/**', handler: _lazy_9uTKho, lazy: true, middleware: false, method: undefined }
@@ -1032,8 +1035,21 @@ const errorDev = /*#__PURE__*/Object.freeze({
   template: template$1
 });
 
-const ninja = defineEventHandler(async (event) => {
-  const { data } = await $fetch("https://api.currencyapi.com/v3/latest?apikey=cur_live_1KmNyuqePLJVTEFydFWljFPo2SuO2GGJVjrx5Xkm");
+const _code_ = defineEventHandler(async (event) => {
+  event.context.params;
+  const { currencyKey } = useRuntimeConfig();
+  const { data } = await $fetch(`https://api.currencyapi.com/v3/latest?currencies=ADAapikey=${currencyKey}`);
+  return data;
+});
+
+const _code_$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: _code_
+});
+
+const ninja = defineEventHandler(async () => {
+  const { currencyKey } = useRuntimeConfig();
+  const { data } = await $fetch(`https://api.currencyapi.com/v3/latest?apiKey=${currencyKey}`);
   return data;
 });
 
