@@ -14,12 +14,12 @@
 </template>
 
 <script lang="ts" setup>
-const {data} = await useFetch<{message:string}>('/api/currency/GBP',{
+const {data} = useAsyncData('about',()=> $fetch<{message:string}>('/api/currency/GBP',{
   method:'post',
   body:{
     age:25
   }
-})
+}))
 </script>
 
 <style scoped>
